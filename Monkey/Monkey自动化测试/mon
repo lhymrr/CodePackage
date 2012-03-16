@@ -1,0 +1,47 @@
+#!/bin/bash
+#ADB Path
+PATH=$PATH:/home/liuheyuan/dev/android-sdk-linux/platform-tools/
+export PATH
+
+
+c_count=1
+
+m_main(){
+
+c_time=$(date +%Y","%m","%d" "%H":"%M":"%S)
+
+echo ""
+echo "当前执行次数："$c_count
+echo ""
+echo "当前系统时间:"$c_time
+
+adb install mv.apk
+
+adb shell monkey -s 538361680 -p com.letv.android.client.music --monitor-native-crashes --ignore-security-exceptions --kill-process-after-error --pct-trackball 0 --pct-nav 0 --pct-anyevent 10 --pct-appswitch 2 -v -v --throttle 500 30000000 > /home/liuheyuan/dev/monkeylog/monkeylog$c_count.Log
+
+adb bugreport > /home/liuheyuan/dev/monkeylog/bugreport$c_count.Log
+
+adb uninstall com.letv.android.client.music
+
+c_time=$(date +%Y","%m","%d" "%H":"%M":"%S)
+
+echo "export  >>>>>  /home/liuheyuan/dev/logcat$c_count.txt"
+echo "当前结束时间:"$c_time
+echo ""
+echo ""
+echo ""
+((c_count++))
+if ((c_count > 11))
+then
+return
+else
+echo ""
+fi
+
+m_main
+}
+
+m_main
+
+
+

@@ -1,0 +1,10 @@
+#!/bin/bash
+#ADB Path
+PATH=$PATH:/home/liuheyuan/dev/android-sdk-linux/platform-tools/
+export PATH
+
+echo "正在打印LogCat >>>>>  /home/liuheyuan/dev/monkeylog/Logcat.Log"
+echo ".......................请勿关闭"
+adb logcat *:E > /home/liuheyuan/dev/monkeylog/Logcat.Log
+
+
