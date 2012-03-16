@@ -1,0 +1,3 @@
+#!/bin/bash
+~/dev/android-sdk-linux/tools/hprof-conv ~/dev/MemoryAnalyze/com.letv.android.client.music.hprof ~/dev/MemoryAnalyze/a.hprof
+

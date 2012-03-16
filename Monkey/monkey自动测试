@@ -1,0 +1,6 @@
+#!/bin/bash
+#ADB Path
+PATH=$PATH:/home/liuheyuan/dev/android-sdk-linux/platform-tools/
+export PATH
+
+adb monkey -s 538361680 -p com.letv.android.client.music --monitor-native-crashes --ignore-security-exceptions --kill-process-after-error --pct-trackball 0 --pct-nav 0 --pct-anyevent 10 --pct-appswitch 2 -v -v --throttle 500 6000 > /home/liuheyuan/dev/logcat1.txt
